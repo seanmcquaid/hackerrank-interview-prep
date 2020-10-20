@@ -5,19 +5,15 @@ function minimumSwaps(arr) {
   let swap = (arr, index1, index2) => {
     [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
   };
-  const sortedArr = arr.slice().sort((a, b) => a - b);
-  let firstIndex = 0;
   
-  while(JSON.stringify(arr) != JSON.stringify(sortedArr)){
-    const currentNum = arr[firstIndex];
-    if(currentNum !== firstIndex + 1){
-      swap(arr, firstIndex, currentNum - 1);
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] !== i + 1){
+      const indexOfCurrentNum = arr.indexOf(i + 1);
+      swap(arr, i, indexOfCurrentNum);
       swapCount++;
-    }else{
-      firstIndex++;
     }
   }
-  console.log(swapCount)
+  
   return swapCount;
 }
 

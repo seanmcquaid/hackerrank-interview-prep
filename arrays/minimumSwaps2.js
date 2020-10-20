@@ -13,9 +13,11 @@ function minimumSwaps(arr) {
     if(currentNum !== firstIndex + 1){
       swap(arr, firstIndex, currentNum - 1);
       swapCount++;
+    }else{
+      firstIndex++;
     }
   }
-  
+  console.log(swapCount)
   return swapCount;
 }
 
